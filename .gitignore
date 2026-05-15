@@ -7,3 +7,17 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+
+# Secrets (never commit)
+settings.json
+settings.local.json
+*.pem
+*.key
+.env
+.env.local
+
+# Cache
+__pycache__/
+*.pyc
+.cache/
+node_modules/

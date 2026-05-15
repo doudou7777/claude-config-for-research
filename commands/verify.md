@@ -1,23 +1,59 @@
----
-description: Legacy slash-entry shim for the verification-loop skill. Prefer the skill directly.
----
+# Verification Command
 
-# Verification Command (Legacy Shim)
+Run comprehensive verification on current codebase state.
 
-Use this only if you still invoke `/verify`. The maintained workflow lives in `skills/verification-loop/SKILL.md`.
+## Instructions
 
-## Canonical Surface
+Execute verification in this exact order:
 
-- Prefer the `verification-loop` skill directly.
-- Keep this file only as a compatibility entry point.
+1. **Type Check**
+   - Run mypy src/
+   - Report all errors with file:line
+
+2. **Lint Check**
+   - Run ruff check .
+   - Report warnings and errors
+
+3. **Test Suite**
+   - Run pytest
+   - Report pass/fail count
+   - Report coverage percentage (pytest --cov)
+
+4. **Security Check**
+   - Run pip-audit
+   - Check for hardcoded secrets (grep -r "sk-" etc.)
+
+5. **Print Audit**
+   - Search for print() in source files
+   - Report locations
+
+6. **Git Status**
+   - Show uncommitted changes
+   - Show files modified since last commit
+
+## Output
+
+Produce a concise verification report:
+
+```
+VERIFICATION: [PASS/FAIL]
+
+Types:    [OK/X errors]
+Lint:     [OK/X issues]
+Tests:    [X/Y passed, Z% coverage]
+Security: [OK/X vulnerabilities]
+Secrets:  [OK/X found]
+Prints:   [OK/X print() statements]
+
+Ready for commit: [YES/NO]
+```
+
+If any critical issues, list them with fix suggestions.
 
 ## Arguments
 
-`$ARGUMENTS`
-
-## Delegation
-
-Apply the `verification-loop` skill.
-- Choose the right verification depth for the user's requested mode.
-- Run build, types, lint, tests, security/log checks, and diff review in the right order for the current repo.
-- Report only the verdicts and blockers instead of maintaining a second verification checklist here.
+$ARGUMENTS can be:
+- `quick` - Only types + lint
+- `full` - All checks (default)
+- `pre-commit` - Checks relevant for commits
+- `pre-pr` - Full checks plus security scan

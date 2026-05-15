@@ -1,7 +1,7 @@
 ---
 name: verification-loop
-description: "A comprehensive verification system for Claude Code sessions."
-origin: ECC
+description: This skill should be used when the user asks to "verify code", "run verification", "check quality", "validate changes", or before creating a PR. Provides comprehensive verification including build, type check, lint, tests, security scan, and diff review.
+version: 1.0.0
 ---
 
 # Verification Loop Skill
@@ -18,9 +18,17 @@ Invoke this skill:
 
 ## Verification Phases
 
+Choose the commands adaptively for the current project instead of running every example blindly. Use the stack-appropriate command from `references/STACK-DETECTION.md` when the repo does not match the default examples below.
+
+
 ### Phase 1: Build Verification
 ```bash
-# Check if project builds
+# Python projects (uv)
+uv build 2>&1 | tail -20
+# OR
+python -m build 2>&1 | tail -20
+
+# Node.js projects
 npm run build 2>&1 | tail -20
 # OR
 pnpm build 2>&1 | tail -20
@@ -50,11 +58,11 @@ ruff check . 2>&1 | head -30
 
 ### Phase 4: Test Suite
 ```bash
-# Run tests with coverage
-npm run test -- --coverage 2>&1 | tail -50
+# Python projects
+pytest --cov=src --cov-report=term-missing 2>&1 | tail -50
 
-# Check coverage threshold
-# Target: 80% minimum
+# Node.js projects
+npm run test -- --coverage 2>&1 | tail -50
 ```
 
 Report:
@@ -65,11 +73,17 @@ Report:
 
 ### Phase 5: Security Scan
 ```bash
-# Check for secrets
+# Python: Check for secrets
+grep -rn "sk-" --include="*.py" . 2>/dev/null | head -10
+grep -rn "api_key" --include="*.py" . 2>/dev/null | head -10
+pip-audit
+
+# Node.js: Check for secrets
 grep -rn "sk-" --include="*.ts" --include="*.js" . 2>/dev/null | head -10
 grep -rn "api_key" --include="*.ts" --include="*.js" . 2>/dev/null | head -10
 
-# Check for console.log
+# Check for debug statements
+grep -rn "print(" --include="*.py" src/ 2>/dev/null | head -10
 grep -rn "console.log" --include="*.ts" --include="*.tsx" src/ 2>/dev/null | head -10
 ```
 
@@ -124,3 +138,11 @@ Run: /verify
 
 This skill complements PostToolUse hooks but provides deeper verification.
 Hooks catch issues immediately; this skill provides comprehensive review.
+
+
+## Reference Files
+
+Load only what is needed:
+- `references/STACK-DETECTION.md` - how to choose the right verification command set for the current repo
+- `references/REPORT-TEMPLATE.md` - report structure for final verification output
+- `examples/example-verification-report.md` - example final report

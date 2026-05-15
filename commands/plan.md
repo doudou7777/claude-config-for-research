@@ -4,7 +4,7 @@ description: Restate requirements, assess risks, and create step-by-step impleme
 
 # Plan Command
 
-This command invokes the **planner** agent to create a comprehensive implementation plan before writing any code.
+This command creates a comprehensive implementation plan before writing any code.
 
 ## What This Command Does
 
@@ -24,7 +24,7 @@ Use `/plan` when:
 
 ## How It Works
 
-The planner agent will:
+This command should:
 
 1. **Analyze the request** and restate requirements in clear terms
 2. **Break down into phases** with specific, actionable steps
@@ -38,7 +38,7 @@ The planner agent will:
 ```
 User: /plan I need to add real-time notifications when markets resolve
 
-Agent (planner):
+Assistant:
 # Implementation Plan: Real-Time Market Resolution Notifications
 
 ## Requirements Restatement
@@ -55,36 +55,37 @@ Agent (planner):
 - Create indexes on user_id and market_id for performance
 
 ### Phase 2: Notification Service
-- Create notification service in lib/notifications.ts
-- Implement notification queue using BullMQ/Redis
+- Create notification service in lib/notifications.py
+- Implement notification queue using Celery/Redis
 - Add retry logic for failed deliveries
-- Create notification templates
+- Create notification templates (Jinja2)
 
 ### Phase 3: Integration Points
 - Hook into market resolution logic (when status changes to "resolved")
 - Query all users with positions in market
 - Enqueue notifications for each user
 
-### Phase 4: Frontend Components
-- Create NotificationBell component in header
-- Add NotificationList modal
-- Implement real-time updates via Supabase subscriptions
-- Add notification preferences page
+### Phase 4: API/Frontend
+- Create notification endpoints (GET /api/notifications, POST /api/notifications/read)
+- WebSocket support for real-time updates
+- Frontend notification bell component
+- Notification preferences page
 
 ## Dependencies
-- Redis (for queue)
-- Email service (SendGrid/Resend)
-- Supabase real-time subscriptions
+- Redis (for Celery queue)
+- Celery (task queue)
+- Email service (SendGrid/Resend/SMTP)
+- WebSocket server (channels/websocket)
 
 ## Risks
 - HIGH: Email deliverability (SPF/DKIM required)
 - MEDIUM: Performance with 1000+ users per market
 - MEDIUM: Notification spam if markets resolve frequently
-- LOW: Real-time subscription overhead
+- LOW: WebSocket connection overhead
 
 ## Estimated Complexity: MEDIUM
 - Backend: 4-6 hours
-- Frontend: 3-4 hours
+- API/Frontend: 3-4 hours
 - Testing: 2-3 hours
 - Total: 9-13 hours
 
@@ -93,7 +94,7 @@ Agent (planner):
 
 ## Important Notes
 
-**CRITICAL**: The planner agent will **NOT** write any code until you explicitly confirm the plan with "yes" or "proceed" or similar affirmative response.
+**CRITICAL**: Do **NOT** write any code until the user explicitly confirms the plan with "yes" or "proceed" or a similar affirmative response.
 
 If you want changes, respond with:
 - "modify: [your changes]"
@@ -104,14 +105,9 @@ If you want changes, respond with:
 
 After planning:
 - Use `/tdd` to implement with test-driven development
-- Use `/build-fix` if build errors occur
+- Use `/build-and-fix` if build errors occur
 - Use `/code-review` to review completed implementation
 
-> **Need deeper planning?** Use `/prp-plan` for artifact-producing planning with PRD integration, codebase analysis, and pattern extraction. Use `/prp-implement` to execute those plans with rigorous validation loops.
+## Related Skills
 
-## Related Agents
-
-This command invokes the `planner` agent provided by ECC.
-
-For manual installs, the source file lives at:
-`agents/planner.md`
+- `architecture-design` (when structural design is needed)
