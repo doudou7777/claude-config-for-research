@@ -61,10 +61,14 @@ install_dir() {
 
 # ---------- Install ----------
 
-install_dir "$PACK_DIR/agents"   "$CLAUDE_DIR/agents"   "Agents"
-install_dir "$PACK_DIR/commands" "$CLAUDE_DIR/commands" "Commands"
-install_dir "$PACK_DIR/skills"   "$CLAUDE_DIR/skills"   "Skills"
-install_dir "$PACK_DIR/hooks"    "$CLAUDE_DIR/hooks"    "Hooks"
+install_dir "$PACK_DIR/agents"     "$CLAUDE_DIR/agents"     "Agents"
+install_dir "$PACK_DIR/commands"   "$CLAUDE_DIR/commands"   "Commands"
+install_dir "$PACK_DIR/skills"     "$CLAUDE_DIR/skills"     "Skills"
+install_dir "$PACK_DIR/hooks"      "$CLAUDE_DIR/hooks"      "Hooks"
+install_dir "$PACK_DIR/contexts"   "$CLAUDE_DIR/contexts"   "Contexts"
+install_dir "$PACK_DIR/mcp-servers" "$CLAUDE_DIR/mcp-servers" "MCP Servers"
+install_dir "$PACK_DIR/scripts"    "$CLAUDE_DIR/scripts"    "Scripts"
+install_dir "$PACK_DIR/templates"  "$CLAUDE_DIR/templates"  "Templates"
 
 # Install rules to correct subdirs
 echo ""
@@ -87,12 +91,39 @@ for f in "$PACK_DIR/rules/python"/*.md; do
   fi
 done
 
-# Install CLAUDE.md (global instructions)
+# Install CLAUDE.md and CLAUDE.zh-CN.md (global instructions)
 echo ""
 echo "▶ Installing CLAUDE.md..."
 backup_if_exists "$CLAUDE_DIR/CLAUDE.md"
 cp "$PACK_DIR/CLAUDE.md" "$CLAUDE_DIR/CLAUDE.md"
 echo "  ✓ CLAUDE.md"
+if [ -f "$PACK_DIR/CLAUDE.zh-CN.md" ]; then
+  backup_if_exists "$CLAUDE_DIR/CLAUDE.zh-CN.md"
+  cp "$PACK_DIR/CLAUDE.zh-CN.md" "$CLAUDE_DIR/CLAUDE.zh-CN.md"
+  echo "  ✓ CLAUDE.zh-CN.md"
+fi
+
+# Install plugins state (marketplace configs, installed list)
+echo ""
+echo "▶ Installing Plugins config..."
+mkdir -p "$CLAUDE_DIR/plugins"
+for f in "$PACK_DIR/plugins"/*.json; do
+  if [ -f "$f" ]; then
+    name=$(basename "$f")
+    backup_if_exists "$CLAUDE_DIR/plugins/$name"
+    cp "$f" "$CLAUDE_DIR/plugins/"
+    echo "  ✓ plugins/$name"
+  fi
+done
+# Copy plugin directories (e.g. claude-hud config)
+for d in "$PACK_DIR/plugins"/*/; do
+  if [ -d "$d" ]; then
+    name=$(basename "$d")
+    backup_if_exists "$CLAUDE_DIR/plugins/$name"
+    cp -r "$d" "$CLAUDE_DIR/plugins/"
+    echo "  ✓ plugins/$name (directory)"
+  fi
+done
 
 # Copy settings template (user merges manually)
 echo ""
@@ -106,11 +137,15 @@ echo " Installation Complete"
 echo "============================================"
 echo ""
 echo "Installed to ~/.claude/:"
-echo "  $(ls "$PACK_DIR/agents"   | wc -l) agents"
-echo "  $(ls "$PACK_DIR/commands" | wc -l) commands"
-echo "  $(ls "$PACK_DIR/skills"   | wc -l) skills"
+echo "  $(ls "$PACK_DIR/agents"      | wc -l) agents"
+echo "  $(ls "$PACK_DIR/commands"    | wc -l) commands"
+echo "  $(ls "$PACK_DIR/skills"      | wc -l) skills"
 echo "  $(find "$PACK_DIR/rules" -name '*.md' | wc -l) rules"
-echo "  $(ls "$PACK_DIR/hooks"    | wc -l) hooks"
+echo "  $(ls "$PACK_DIR/hooks"       | wc -l) hooks"
+echo "  $(ls "$PACK_DIR/contexts"    | wc -l) contexts"
+echo "  $(ls "$PACK_DIR/mcp-servers" | wc -l) mcp-servers"
+echo "  $(ls "$PACK_DIR/scripts"     | wc -l) scripts"
+echo "  $(ls "$PACK_DIR/templates"   | wc -l) templates"
 echo ""
 echo "── Marketplaces & Plugins ──"
 echo ""

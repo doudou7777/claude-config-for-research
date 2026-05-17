@@ -1,23 +1,36 @@
-# OS
-.DS_Store
-Thumbs.db
-
-# IDE
-.idea/
-.vscode/
-*.swp
-*.swo
-
-# Secrets (never commit)
+# Sensitive: API tokens and keys
 settings.json
 settings.local.json
-*.pem
-*.key
-.env
-.env.local
+settings.json.bak
 
-# Cache
-__pycache__/
-*.pyc
-.cache/
-node_modules/
+# Chat history and sessions
+history.jsonl
+sessions/
+session-env/
+shell-snapshots/
+paste-cache/
+
+# Cache and temporary files
+cache/
+downloads/
+tasks/
+telemetry/
+backups/
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# File history
+file-history/
+
+# Plugin marketplaces (nested git repos)
+plugins/marketplaces/
+
+# Install artifacts and backups
+.claude-scholar-backups/
+.claude-scholar-install-state
+.claude-scholar-manifest.txt
+
+# Session data
+projects/

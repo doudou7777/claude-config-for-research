@@ -1,0 +1,135 @@
+{
+  "version": 2,
+  "plugins": {
+    "github@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\claude-plugins-official\\github\\b5a156b6ecd2",
+        "version": "b5a156b6ecd2",
+        "installedAt": "2026-05-10T13:08:26.633Z",
+        "lastUpdated": "2026-05-17T02:01:24.254Z",
+        "gitCommitSha": "76b35e91d1c99c090b1a08dade53bcc5e352c1b2"
+      }
+    ],
+    "andrej-karpathy-skills@karpathy-skills": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\karpathy-skills\\andrej-karpathy-skills\\1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-05-11T02:18:50.464Z",
+        "lastUpdated": "2026-05-17T02:01:24.254Z",
+        "gitCommitSha": "2c606141936f1eeef17fa3043a72095b4765b9c2"
+      }
+    ],
+    "nature-skills@nature-skills": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\nature-skills\\nature-skills\\1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-05-15T09:56:32.278Z",
+        "lastUpdated": "2026-05-17T02:01:24.254Z",
+        "gitCommitSha": "6c44facd955e995fb2c48d9c349c8634012807de"
+      }
+    ],
+    "claude-hud@claude-hud": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\claude-hud\\claude-hud\\0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-16T18:10:02.053Z",
+        "lastUpdated": "2026-05-17T02:01:24.254Z",
+        "gitCommitSha": "6f7d07323c5615afc08771cebc22073e8c04a946"
+      }
+    ],
+    "image-processing-and-computer-vision@matlab-agentic-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\matlab-agentic-toolkit\\image-processing-and-computer-vision\\0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-17T01:49:55.966Z",
+        "lastUpdated": "2026-05-17T01:49:55.966Z",
+        "gitCommitSha": "8a2d96a93a675f5856720d1570a15759e1a2aef6"
+      }
+    ],
+    "matlab-app-building@matlab-agentic-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\matlab-agentic-toolkit\\matlab-app-building\\0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-17T01:50:02.975Z",
+        "lastUpdated": "2026-05-17T01:50:02.975Z",
+        "gitCommitSha": "8a2d96a93a675f5856720d1570a15759e1a2aef6"
+      }
+    ],
+    "matlab-core@matlab-agentic-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\matlab-agentic-toolkit\\matlab-core\\0.3.1",
+        "version": "0.3.1",
+        "installedAt": "2026-05-17T01:50:09.297Z",
+        "lastUpdated": "2026-05-17T01:50:09.297Z",
+        "gitCommitSha": "8a2d96a93a675f5856720d1570a15759e1a2aef6"
+      }
+    ],
+    "matlab-software-development@matlab-agentic-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\matlab-agentic-toolkit\\matlab-software-development\\0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-17T01:50:15.823Z",
+        "lastUpdated": "2026-05-17T01:50:15.823Z",
+        "gitCommitSha": "8a2d96a93a675f5856720d1570a15759e1a2aef6"
+      }
+    ],
+    "reporting-and-database-access@matlab-agentic-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\matlab-agentic-toolkit\\reporting-and-database-access\\0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-17T01:50:22.233Z",
+        "lastUpdated": "2026-05-17T01:50:22.233Z",
+        "gitCommitSha": "8a2d96a93a675f5856720d1570a15759e1a2aef6"
+      }
+    ],
+    "rf-and-mixed-signal@matlab-agentic-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\matlab-agentic-toolkit\\rf-and-mixed-signal\\0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-17T01:50:29.147Z",
+        "lastUpdated": "2026-05-17T01:50:29.147Z",
+        "gitCommitSha": "8a2d96a93a675f5856720d1570a15759e1a2aef6"
+      }
+    ],
+    "signal-processing@matlab-agentic-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\matlab-agentic-toolkit\\signal-processing\\0.1.1",
+        "version": "0.1.1",
+        "installedAt": "2026-05-17T01:50:35.824Z",
+        "lastUpdated": "2026-05-17T01:50:35.824Z",
+        "gitCommitSha": "8a2d96a93a675f5856720d1570a15759e1a2aef6"
+      }
+    ],
+    "toolkit@matlab-agentic-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\matlab-agentic-toolkit\\toolkit\\0.2.4",
+        "version": "0.2.4",
+        "installedAt": "2026-05-17T01:50:42.140Z",
+        "lastUpdated": "2026-05-17T01:50:42.140Z",
+        "gitCommitSha": "8a2d96a93a675f5856720d1570a15759e1a2aef6"
+      }
+    ],
+    "wireless-communications@matlab-agentic-toolkit": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\Administrator\\.claude\\plugins\\cache\\matlab-agentic-toolkit\\wireless-communications\\0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-05-17T01:50:48.621Z",
+        "lastUpdated": "2026-05-17T01:50:48.621Z",
+        "gitCommitSha": "8a2d96a93a675f5856720d1570a15759e1a2aef6"
+      }
+    ]
+  }
+}
