@@ -89,11 +89,60 @@
         "UNPAYWALL_EMAIL": "<your-email@example.com>",
         "UNSAFE_OPERATIONS": "all"
       }
+    },
+    "r-mcpr-server": {
+      "command": "<path-to-Rscript>",
+      "args": [
+        "<path-to-claude-home>/.claude/mcp-servers/r-server.R"
+      ],
+      "description": "R-based MCP server (mcpr) providing statistical and data processing tools"
     }
   },
   "enabledPlugins": {
     "document-skills@anthropic-agent-skills": true,
     "github@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true
+    "superpowers@claude-plugins-official": true,
+    "andrej-karpathy-skills@karpathy-skills": true,
+    "nature-skills@nature-skills": true,
+    "claude-hud@claude-hud": true,
+    "image-processing-and-computer-vision@matlab-agentic-toolkit": true,
+    "matlab-app-building@matlab-agentic-toolkit": true,
+    "matlab-core@matlab-agentic-toolkit": true,
+    "matlab-software-development@matlab-agentic-toolkit": true,
+    "reporting-and-database-access@matlab-agentic-toolkit": true,
+    "rf-and-mixed-signal@matlab-agentic-toolkit": true,
+    "signal-processing@matlab-agentic-toolkit": true,
+    "toolkit@matlab-agentic-toolkit": true,
+    "wireless-communications@matlab-agentic-toolkit": true
+  },
+  "extraKnownMarketplaces": {
+    "karpathy-skills": {
+      "source": {
+        "source": "github",
+        "repo": "forrestchang/andrej-karpathy-skills"
+      }
+    },
+    "nature-skills": {
+      "source": {
+        "source": "github",
+        "repo": "Yuan1z0825/nature-skills"
+      }
+    },
+    "claude-hud": {
+      "source": {
+        "source": "github",
+        "repo": "jarrodwatts/claude-hud"
+      }
+    },
+    "matlab-agentic-toolkit": {
+      "source": {
+        "source": "git",
+        "url": "https://github.com/matlab/matlab-agentic-toolkit.git"
+      }
+    }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "cols=$(stty size </dev/tty 2>/dev/null | awk '{print $2}'); export COLUMNS=$(( ${cols:-120} > 4 ? ${cols:-120} - 4 : 1 )); plugin_dir=$(ls -1d \"${CLAUDE_CONFIG_DIR:-$HOME/.claude}\"/plugins/cache/*/claude-hud/*/ 2>/dev/null | sort -V | tail -1); exec \"<path-to-node>\" \"${plugin_dir}dist/index.js\""
   }
 }
