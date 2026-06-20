@@ -1,0 +1,42 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "C:\\Users\\Administrator\\.claude\\plugins\\marketplaces\\claude-plugins-official",
+    "lastUpdated": "2026-06-08T00:39:54.705Z"
+  },
+  "karpathy-skills": {
+    "source": {
+      "source": "github",
+      "repo": "forrestchang/andrej-karpathy-skills"
+    },
+    "installLocation": "C:\\Users\\Administrator\\.claude\\plugins\\marketplaces\\karpathy-skills",
+    "lastUpdated": "2026-05-11T02:18:43.657Z"
+  },
+  "nature-skills": {
+    "source": {
+      "source": "github",
+      "repo": "Yuan1z0825/nature-skills"
+    },
+    "installLocation": "C:\\Users\\Administrator\\.claude\\plugins\\marketplaces\\nature-skills",
+    "lastUpdated": "2026-05-15T09:56:31.979Z"
+  },
+  "claude-hud": {
+    "source": {
+      "source": "github",
+      "repo": "jarrodwatts/claude-hud"
+    },
+    "installLocation": "C:\\Users\\Administrator\\.claude\\plugins\\marketplaces\\claude-hud",
+    "lastUpdated": "2026-05-16T18:09:52.026Z"
+  },
+  "matlab-agentic-toolkit": {
+    "source": {
+      "source": "git",
+      "url": "https://github.com/matlab/matlab-agentic-toolkit.git"
+    },
+    "installLocation": "C:\\Users\\Administrator\\.claude\\plugins\\marketplaces\\matlab-agentic-toolkit",
+    "lastUpdated": "2026-05-17T01:49:19.096Z"
+  }
+}

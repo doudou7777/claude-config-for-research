@@ -1,0 +1,36 @@
+# Sensitive: API tokens and keys
+settings.json
+settings.local.json
+settings.json.bak
+
+# Chat history and sessions
+history.jsonl
+sessions/
+session-env/
+shell-snapshots/
+paste-cache/
+
+# Cache and temporary files
+cache/
+downloads/
+tasks/
+telemetry/
+backups/
+
+# IDE / editor files
+.vscode/
+.idea/
+
+# File history
+file-history/
+
+# Plugin marketplaces (nested git repos)
+plugins/marketplaces/
+
+# Install artifacts and backups
+.claude-scholar-backups/
+.claude-scholar-install-state
+.claude-scholar-manifest.txt
+
+# Session data
+projects/
